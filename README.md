@@ -1,10 +1,17 @@
 Posts Spring Boot microservice
+
 Use Docker to deploy application command: 'docker compose up'
+
 Application port: 8080
+
 Mysql database:
+
 -schema: post_schema
+
 -port : 3306
+
 -username: admin
+
 -password: admin
 
 OpenApi documentation
