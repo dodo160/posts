@@ -1,0 +1,28 @@
+version: "0.0.1-SNAPSHOT"
+services:
+  mysqldb:
+    image: "mysql:8.3.0"
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - post-network
+    environment:
+      MYSQL_DATABASE: post_schema
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: root
+
+  api_service:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - post-network
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/post_schema?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&useTimezone=true&serverTimezone=Europe/Bratislava
+    depends_on:
+      - mysqldb
+networks:
+  post-network:
