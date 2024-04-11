@@ -1,6 +1,6 @@
 Posts Spring Boot microservice
 
-Use Docker to deploy application command: 'docker compose up'
+Use Docker to deploy application, use command: 'docker compose up'
 
 Application port: 8080
 
